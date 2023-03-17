@@ -38,7 +38,7 @@
                             <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <div class="cards">
-                            <div v-for="contact in contacts" class="card">
+                            <div v-for="(contact, index) in contacts" class="card" @click="selctedContact=index">
                                 <div class="contact-info">
                                     <img :src="contact.avatar" :alt="contact.name">
                                     <div>
@@ -53,8 +53,8 @@
                     <div class="chat-container">
                         <div class="account">
                             <div class="info">
-                                <img src="img/avatar_1.jpg" alt="">
-                                <span>Michele</span>
+                                <img :src="contacts[selctedContact].avatar" :alt="contacts[selctedContact].name">
+                                <span>{{contacts[selctedContact].name}}</span>
                             </div>
                             <div class="function-icons">
                                 <i class="fa-solid fa-magnifying-glass"></i>
@@ -63,8 +63,8 @@
                             </div>
                         </div>
                         <div class="chat">
-                            <div class="message sent">hai portato a spasso il cane?</div>
-                            <div class="message">hai portato a spasso il cane?</div>
+                            <div v-for="chatMessage in contacts[selctedContact].messages" :class="chatMessage.status == 'sent'?'sent':'' " class="message">{{chatMessage.message}}</div>
+                            
                         </div>
                         <div class="input-message">
                             <i class="fa-regular fa-face-smile"></i>

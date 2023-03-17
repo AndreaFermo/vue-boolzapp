@@ -3,7 +3,7 @@
   createApp({
     data() {
       return {
-        seltedContact : '',
+        selctedContact: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -169,5 +169,8 @@
         ]
         
       }
+    },
+    methods: {
+
     }
   }).mount('#app')
