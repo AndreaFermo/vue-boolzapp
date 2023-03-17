@@ -38,7 +38,7 @@
                             <input type="text" placeholder="Cerca o inizia una nuova chat">
                         </div>
                         <div class="cards">
-                            <div v-for="(contact, index) in contacts" class="card" @click="selctedContact=index">
+                            <div v-for="(contact, index) in contacts" class="card" @click="selctedContact=index" :class="selctedContact == index?'selected':'' ">
                                 <div class="contact-info">
                                     <img :src="contact.avatar" :alt="contact.name">
                                     <div>
