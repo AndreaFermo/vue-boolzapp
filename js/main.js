@@ -4,6 +4,16 @@
     data() {
       return {
         selctedContact: 0,
+        newMessage: {
+            date: '10/01/2020 15:30:55',
+            message: '',
+            status: 'sent'
+        },
+        autoMessage: {
+            date: '10/01/2020 15:30:55',
+            message: 'ok',
+            status: 'recived'
+},
         contacts: [
             {
                 name: 'Michele',
@@ -171,6 +181,15 @@
       }
     },
     methods: {
-
+        sendNewMessage(index) {
+            if (this.newMessage.message.length > 0) {
+                this.contacts[index].messages.push({...this.newMessage});
+                this.newMessage.message= '';
+                setTimeout(() => {
+                    this.contacts[index].messages.push({...this.autoMessage});
+                }, 1000)
+            }            
+        },
+       
     }
   }).mount('#app')
