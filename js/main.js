@@ -191,6 +191,15 @@
                 }, 1000)
             }            
         },
-       
-    }
+        filterContacts() {
+            this.contacts.forEach(element => {
+                if (!element.name.toLowerCase().includes(this.searchContact.toLowerCase())) {
+                    return element.visible = false;
+                } else {
+                    return element.visible = true;
+                }
+            });
+        }
+    },
+    
   }).mount('#app')

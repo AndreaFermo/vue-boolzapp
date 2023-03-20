@@ -35,10 +35,10 @@
                         </div>
                         <div class="search-contact">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="filterContacts()">
                         </div>
                         <div class="cards">
-                            <div v-for="(contact, index) in contacts" class="card" @click="selctedContact=index" :class="selctedContact == index?'selected':'' ">
+                            <div v-for="(contact, index) in contacts" class="card" @click="selctedContact=index" :class="selctedContact == index?'selected':''" v-show="contact.visible==true">
                                 <div class="contact-info">
                                     <img :src="contact.avatar" :alt="contact.name">
                                     <div>
@@ -46,7 +46,7 @@
                                         <span>{{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
                                 </div>
-                                <span class="last-access">12:00</span>
+                                <span class="last-access">{{contact.messages[contact.messages.length-1].date}}</span>
                             </div>
                         </div>
                     </div>
@@ -63,8 +63,10 @@
                             </div>
                         </div>
                         <div class="chat">
-                            <div v-for="chatMessage in contacts[selctedContact].messages" :class="chatMessage.status == 'sent'?'sent':'' " class="message">{{chatMessage.message}}</div>
-                            
+                            <div v-for="chatMessage in contacts[selctedContact].messages" :class="chatMessage.status == 'sent'?'sent':'' " class="message">
+                                {{chatMessage.message}}
+                                <div class="date-message">{{chatMessage.date}}</div>
+                            </div>
                         </div>
                         <div class="input-message">
                             <i class="fa-regular fa-face-smile"></i>
