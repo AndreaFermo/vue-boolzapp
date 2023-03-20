@@ -1,16 +1,19 @@
- const { createApp } = Vue
+const DateTime = luxon.DateTime;
+const { createApp } = Vue
 
-  createApp({
+createApp({
     data() {
-      return {
+        return {
+        showByIndex: null,
+        showByClick: null,
         selctedContact: 0,
         newMessage: {
-            date: '10/01/2020 15:30:55',
+            date: '',
             message: '',
             status: 'sent'
         },
         autoMessage: {
-            date: '10/01/2020 15:30:55',
+            date: '',
             message: 'ok',
             status: 'recived'
         },
@@ -179,14 +182,16 @@
             }
         ]
         
-      }
+        }
     },
     methods: {
         sendNewMessage(index) {
             if (this.newMessage.message.length > 0) {
+                this.newMessage.date= DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
                 this.contacts[index].messages.push({...this.newMessage});
                 this.newMessage.message= '';
                 setTimeout(() => {
+                    this.autoMessage.date= DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
                     this.contacts[index].messages.push({...this.autoMessage});
                 }, 1000)
             }            
@@ -194,12 +199,14 @@
         filterContacts() {
             this.contacts.forEach(element => {
                 if (!element.name.toLowerCase().includes(this.searchContact.toLowerCase())) {
-                    return element.visible = false;
+                    element.visible = false;
                 } else {
-                    return element.visible = true;
+                    element.visible = true;
                 }
             });
-        }
+        },
+        removeMessage(messageIndex) {
+            this.contacts[this.selctedContact].messages.splice(messageIndex, 1);
+        },
     },
-    
-  }).mount('#app')
+}).mount('#app')

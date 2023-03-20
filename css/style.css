@@ -172,11 +172,14 @@ main {
 }
 
 .message {
-    width: 250px;
+    min-width: 250px;
+    max-width: 400px;
     background-color: white;
     padding: 10px 10px 15px;
     border-radius: 10px;
     margin: 10px 50px;
+    align-self: flex-start;
+    display: flex;
 }
 
 .message.sent {
@@ -205,6 +208,34 @@ main {
     font-size: 10px;
     margin-top: 5px;
 }
+
+.message-container {
+    flex-grow: 1;
+}
+
+.message-functions {
+    padding: 0 5px;
+    position: relative;
+}
+
+.functions-container {
+    position: absolute;
+    right: 0;
+    bottom: calc(0 - 100%);
+    width: 200px;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px #888;
+}
+
+.function {
+    padding: 20px;
+}
+
+.function:hover {
+    background-color: #d7dbd7;
+}
+
+
 
 
 
