@@ -13,7 +13,8 @@
             date: '10/01/2020 15:30:55',
             message: 'ok',
             status: 'recived'
-},
+        },
+        searchContact: '',
         contacts: [
             {
                 name: 'Michele',

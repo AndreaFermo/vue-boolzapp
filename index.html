@@ -35,7 +35,7 @@
                         </div>
                         <div class="search-contact">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
                         </div>
                         <div class="cards">
                             <div v-for="(contact, index) in contacts" class="card" @click="selctedContact=index" :class="selctedContact == index?'selected':'' ">
@@ -43,7 +43,7 @@
                                     <img :src="contact.avatar" :alt="contact.name">
                                     <div>
                                         <div>{{contact.name}}</div>
-                                        <span>Ultimo messaggio inviato</span>
+                                        <span>{{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
                                 </div>
                                 <span class="last-access">12:00</span>
