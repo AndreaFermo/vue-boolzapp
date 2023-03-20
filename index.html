@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="chat">
-                            <div v-for="(chatMessage, index) in contacts[selctedContact].messages" :class="chatMessage.status == 'sent'?'sent':'' " class="message"  @mouseover="showByIndex = chatMessage" @mouseout="showByIndex = null">
+                            <div v-for="(chatMessage, index) in contacts[selctedContact].messages" :class="chatMessage.status == 'sent'?'sent':'' " class="message"  @mouseover="showByIndex = chatMessage" @mouseout="showByIndex = null" @mouseleave="showByClick = null">
                                 <div class="message-container">
                                     <div class="message-text">{{chatMessage.message}}</div>
                                     <div class="date-message">{{chatMessage.date}}</div>
