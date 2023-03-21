@@ -54,7 +54,12 @@
                         <div class="account">
                             <div class="info">
                                 <img :src="contacts[selctedContact].avatar" :alt="contacts[selctedContact].name">
-                                <span>{{contacts[selctedContact].name}}</span>
+                                <div>
+                                    <div>
+                                        {{contacts[selctedContact].name}}
+                                    </div>
+                                    <div class="last-access">Ultimo accesso: {{contacts[selctedContact].messages[contacts[selctedContact].messages.length-1].date}}</div>
+                                </div>
                             </div>
                             <div class="function-icons">
                                 <i class="fa-solid fa-magnifying-glass"></i>

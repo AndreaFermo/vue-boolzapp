@@ -164,6 +164,11 @@ main {
     padding-top: 30px;
 }
 
+.last-access {
+    font-size: 10px;
+    color: #6b7376;
+}
+
 .input-message {
     height: 65px;
     width: 100%;
