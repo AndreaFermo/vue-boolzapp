@@ -246,6 +246,14 @@ main {
     background-color: rgba(126, 126, 126, 0.1);
 }
 
+.message-functions i:hover {
+    cursor: pointer;
+}
+
+.function:hover {
+    cursor: pointer;
+}
+
 
 
 
