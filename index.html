@@ -58,7 +58,7 @@
                                     <div>
                                         {{contacts[selctedContact].name}}
                                     </div>
-                                    <div class="last-access">Ultimo accesso: {{contacts[selctedContact].messages[contacts[selctedContact].messages.length-1].date}}</div>
+                                    <div class="last-access" v-if="contacts[selctedContact].messages.length > 0">Ultimo accesso: {{contacts[selctedContact].messages[contacts[selctedContact].messages.length-1].date}}</div>
                                 </div>
                             </div>
                             <div class="function-icons">
