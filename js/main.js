@@ -190,11 +190,11 @@ createApp({
                 this.newMessage.date= DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
                 this.contacts[index].messages.push({...this.newMessage});
                 this.newMessage.message= '';
-                setTimeout(() => {this.scrollToEnd();}, 10)
+                setTimeout(() => {this.scrollToEnd()}, 10)
                 setTimeout(() => {
                     this.autoMessage.date= DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS);
                     this.contacts[index].messages.push({...this.autoMessage});
-                    setTimeout(() => {this.scrollToEnd();}, 10)
+                    setTimeout(() => {this.scrollToEnd()}, 10)
                 }, 1000)
             }            
         },
