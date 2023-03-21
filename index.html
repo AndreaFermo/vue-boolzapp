@@ -37,8 +37,8 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="filterContacts()">
                         </div>
-                        <div class="cards">
-                            <div v-for="(contact, index) in contacts" class="card" @click="selctedContact=index" :class="selctedContact == index?'selected':''" v-show="contact.visible">
+                        <ul class="cards">
+                            <li v-for="(contact, index) in contacts" class="card" @click="selctedContact=index" :class="selctedContact == index?'selected':''" v-show="contact.visible">
                                 <div class="contact-info">
                                     <img :src="contact.avatar" :alt="contact.name">
                                     <div>
@@ -47,8 +47,8 @@
                                     </div>
                                 </div>
                                 <span class="last-access" v-if="contact.messages.length > 0">{{contact.messages[contact.messages.length-1].date}}</span>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
                     <div class="chat-container">
                         <div class="account">
@@ -62,8 +62,8 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </div>
                         </div>
-                        <div class="chat">
-                            <div v-for="(chatMessage, index) in contacts[selctedContact].messages" :class="chatMessage.status == 'sent'?'sent':'' " class="message"  @mouseover="showByIndex = chatMessage" @mouseout="showByIndex = null" @mouseleave="showByClick = null">
+                        <ul class="chat">
+                            <li v-for="(chatMessage, index) in contacts[selctedContact].messages" :class="chatMessage.status == 'sent'?'sent':'' " class="message"  @mouseover="showByIndex = chatMessage" @mouseout="showByIndex = null" @mouseleave="showByClick = null">
                                 <div class="message-container">
                                     <div class="message-text">{{chatMessage.message}}</div>
                                     <div class="date-message">{{chatMessage.date}}</div>
@@ -75,9 +75,8 @@
                                         <div class="function" @click="removeMessage(index)">Delete message</div>
                                     </div>
                                 </div>                     
-                            </div>
-                            
-                        </div>
+                            </li>
+                        </ul>
                         <div class="input-message">
                             <i class="fa-regular fa-face-smile"></i>
                             <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage.message" @keyup.enter="sendNewMessage(selctedContact)">

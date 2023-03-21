@@ -208,5 +208,16 @@ createApp({
         removeMessage(messageIndex) {
             this.contacts[this.selctedContact].messages.splice(messageIndex, 1);
         },
+        scrollToEnd() {
+            const container = document.querySelector('.chat');
+            const scrollHeight = container.scrollHeight;
+            container.scrollTop = scrollHeight;
+        },
     },
+    mounted() {
+        this.scrollToEnd();
+    },
+    updated() {
+        this.scrollToEnd();
+    }
 }).mount('#app')

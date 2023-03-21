@@ -16,12 +16,12 @@ header {
 
 main {
     height: 90vh;
-    width: 1100px;
+    width: 80%;
     position: absolute;
     z-index: 9999;
     background-color: white;
     top: 5vh;
-    left: calc(50% - 550px);
+    left: calc(50% - 40%);
 }
 
 .container {
@@ -234,6 +234,12 @@ main {
 .function:hover {
     background-color: #d7dbd7;
 }
+
+.card:hover {
+    cursor: pointer;
+}
+
+
 
 
 
